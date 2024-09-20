@@ -2,7 +2,7 @@ import React, { Suspense, useEffect, useRef, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
 import { AnimationMixer } from 'three';
-import CanvasLoader from "../Loader";
+// import CanvasLoader from "../Loader";
 
 const Computers = ({ isMobile }) => {
   const computer = useGLTF("./robot/scene.gltf");
@@ -61,7 +61,7 @@ const RobotCanvas = () => {
       camera={{ position: [20, 3, 5], fov: 25 }}
       gl={{ preserveDrawingBuffer: true }}
     >
-      <Suspense fallback={<CanvasLoader />}>
+      <Suspense >
         <OrbitControls
           enableZoom={false}
           maxPolarAngle={Math.PI / 2}

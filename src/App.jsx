@@ -6,23 +6,39 @@ const App = () => {
   const introRef = useRef(null);
   const contactRef = useRef(null);
 
+  const gradientBackground = {
+    position: 'relative',
+    zIndex: 0,
+    background: 'linear-gradient(135deg, rgba(12, 31, 63, 0.8), rgba(75, 44, 145, 0.8))',
+    height: '100vh',
+  };
+
+  const videoStyle = {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '100%',
+    objectFit: 'cover',
+    zIndex: -1,
+    opacity: 0.5,
+  };
+
   return (
     <BrowserRouter>
-      <div className='relative z-0 bg-primary'>
+      <div style={gradientBackground}>
         <video
-          className='absolute top-0 left-0 w-full h-full object-cover z-[-2] opacity-30'
+          style={videoStyle}
           src='./bg1.mp4'
           autoPlay
           muted
           loop
         />
         
-        <div className='bg-hero-pattern bg-cover bg-no-repeat bg-center'>
+        <div className='relative z-10'>
           <Navbar introRef={introRef} contactRef={contactRef} />
           <Hero />
-          <div ref={introRef}>
-            <Intro />
-          </div>
+          <Intro />
           <div ref={contactRef}>
             <Contact />
           </div>

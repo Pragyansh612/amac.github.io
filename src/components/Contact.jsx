@@ -25,9 +25,9 @@ const Contact = () => {
       }
     };
   }, []);
-  
+
   return (
-    <div ref={scrollRef} className={` p-5 bg-slate-900 ${isVisible ? 'contact-animated' : ''}`}>
+    <div ref={scrollRef} className={`p-5 bg-slate-900 ${isVisible ? 'contact-animated' : ''}`}>
       <div className='mx-5 md:mx-20'>
         <h1 className='text-2xl text-slate-300 text-center font-bold poppins-bold hover:text-3xl duration-200'>CONTACT US</h1>
         <p className='mt-2 text-wrap text-center text-gray-200 poppins-regular'>
@@ -37,13 +37,13 @@ const Contact = () => {
       <div className='mx-5 md:mx-20 mt-2 text-center'>
         <h2 className='text-xl text-slate-300 font-bold poppins-semibold'>Get in Touch</h2>
         <p className='mt-1 text-wrap poppins-regular'>
-          <strong>Email:</strong> <a href="mailto:amacstellastudio@gmail.com" className='text-blue-500'>amacstellastudio@gmail.com</a>
+          <strong>Email:</strong> <a href="mailto:amacstellarstudio@gmail.com" className='text-blue-500'>amacstellarstudio@gmail.com</a>
         </p>
         <p className='mt-1 text-wrap poppins-regular'>
           <strong>Phone:</strong> <a href="tel:+919748224621" className='text-blue-500'>+91 9748224621</a>
         </p>
       </div>
-      <div className='mx-5 md:mx-20 mt-2s text-center'>
+      <div className='mx-5 md:mx-20 mt-2 text-center'>
         <p className='text-wrap poppins-regular'>
           Our team is dedicated to exceptional service. We’re here to help!
         </p>

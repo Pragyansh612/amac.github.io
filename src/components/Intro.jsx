@@ -53,11 +53,25 @@ const Intro = () => {
   ];
 
   return (
-    <div ref={scrollRef} className={`mt-10 ${isVisible ? 'intro-animated' : ''}`}>
+    <div ref={scrollRef} className={`mt-10 ${isVisible ? 'intro-animated' : ''}`} style={{ background: 'transparent' }}>
       <div className='mx-5 md:mx-20'>
         <h1 className='text-5xl text-slate-300 poppins-bold hover:text-5xl duration-250 text-center'>INTRODUCTION</h1>
         <p className='mt-5 text-wrap poppins-regular text-center'>
-          At Amac Stellar Studio, we bring your ideas to life with precision, creativity, and cutting-edge technology. As a full-service studio specializing in Graphic Design, 2D/3D Animation, VFX, Gaming, Video Editing, and Motion Graphics, we push the boundaries of visual storytelling across industries. Whether it’s 2D or 3D work, we blend creativity with technology to create immersive experiences that captivate your audience.
+          Welcome to Amac Stellar Studio – Where Creativity Meets Precision <br />
+          At Amac Stellar Studio, we don’t just create visuals – we craft immersive experiences that captivate, inspire, and engage. As leaders in *Graphic Design, Animation, VFX, Gaming, Video Editing, and Motion Graphics, we specialize in transforming your boldest ideas into extraordinary realities. Whether it’s the elegance of 2D animation or the intricate detail of 3D environments, our skilled team of artists, animators, and designers blend creativity and cutting-edge technology to deliver world-class results.
+          <br />
+          <br />
+          We pride ourselves on using industry-leading software like Adobe Creative Suite, Autodesk Maya, Blender, Unity, Unreal Engine, and more, ensuring that every project is executed with precision and technical excellence. Our commitment to timely delivery and staying on schedule is as strong as our dedication to quality, making us the perfect partner for businesses that need both creative brilliance and reliability.
+          <br />
+          <br />
+          At Amac Stellar Studio, we handle everything from conceptualization to final post-production, offering *end-to-end solutions tailored to meet your specific needs. Whether it's immersive gaming environments, captivating commercials, or dynamic motion graphics, we fuse artistic vision with the power of technology to bring your story to life.
+          <br />
+          <br />
+          We understand that deadlines are crucial in today’s fast-paced world, which is why our workflow is designed to meet them without compromising on quality. With every project, our team ensures smooth communication, detailed planning, and efficient execution – delivering *on time, every time.
+          From immersive gaming environments and captivating commercials to dynamic motion graphics and flawless video editing, we provide end-to-end services that elevate your project. With a blend of traditional craftsmanship and cutting-edge technology, our work reflects precision, creativity, and dedication to excellence. Let us bring your ideas to life and help your vision resonate with your audience.
+          <br />
+          <br />
+          Partner with Amac Stellar Studio today, and let’s create something extraordinary together!
         </p>
       </div>
       <div className={`animated-line mt-5 ${lineVisible ? 'line-visible' : ''}`}></div>

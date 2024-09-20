@@ -1,0 +1,90 @@
+/* Intro.css */
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.intro-animated {
+  animation: fadeInUp 2s ease forwards; /* Animation styles */
+}
+
+.service-card {
+  background: linear-gradient(to right, #3b82f6, #14b8a6); /* Gradient background */
+  height: 12rem; /* Default height */
+  width: 11rem; /* Fixed width */
+  border-radius: 0.5rem; /* Rounded corners */
+  display: flex; /* Flexbox for centering */
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center horizontally */
+  justify-content: flex-start; /* Align to the top */
+  position: relative; /* For positioning */
+  transition: height 0.5s ease; /* Smooth height transition */
+  overflow: hidden; /* Hide overflow */
+}
+
+.service-card.expanded {
+  height: 24rem; /* Height when expanded */
+}
+
+.service-card:hover {
+  transform: scale(1.05); /* Scale up on hover */
+}
+
+.description {
+  opacity: 0; /* Start hidden */
+  transform: translateY(10px); /* Start from slightly below */
+  transition: opacity 0.3s ease, transform 0.3s ease; /* Transition for smooth effect */
+  margin-top: 0.5rem; /* Space between title and description */
+  padding: 0 1rem; /* Padding for description */
+  text-align: center; /* Center text */
+  color: white; /* Text color */
+}
+
+.description.visible {
+  opacity: 1; /* Show description */
+  transform: translateY(0); /* Move to final position */
+}
+
+.text-wrap {
+  word-wrap: break-word; /* Ensure text wraps nicely */
+}
+
+/* Additional styles for responsiveness if needed */
+@media (max-width: 768px) {
+  .service-card {
+    width: 80%; /* Full width on smaller screens */
+  }
+}
+.intro-animated {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: pop-up 1s forwards;
+}
+
+@keyframes pop-up {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.animated-line {
+  height: 2px; /* Line thickness */
+  background-color: #cbd5e1; /* Adjust color as needed */
+  width: 100%; /* Full width */
+  opacity: 0; /* Start hidden */
+  transform: scaleX(0); /* Start scaled down */
+  transition: opacity 1s ease, transform 1s ease; /* Animation properties */
+}
+
+.line-visible {
+  opacity: 1; /* Fully visible */
+  transform: scaleX(1); /* Scale to full width */
+}
+

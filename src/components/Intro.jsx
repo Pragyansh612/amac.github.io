@@ -55,7 +55,7 @@ const Intro = ({ skillsRef }) => {
   return (
     <div ref={scrollRef} className={`mt-10 ${isVisible ? 'intro-animated' : ''}`} style={{ background: 'transparent' }}>
       <div className='mx-5 md:mx-20'>
-        <h1 className='text-5xl text-slate-300 poppins-bold hover:text-6xl duration-250 text-center'>INTRODUCTION</h1>
+        <h1 className='text-5xl text-slate-300 poppins-bold hover:text-6xl duration-200 text-center'>INTRODUCTION</h1>
         <p className='mt-5 text-wrap poppins-regular text-center'>
           Welcome to Amac Stellar Studio – Where Creativity Meets Precision <br />
           At Amac Stellar Studio, we don’t just create visuals – we craft immersive experiences that captivate, inspire, and engage. As leaders in *Graphic Design, Animation, VFX, Gaming, Video Editing, and Motion Graphics, we specialize in transforming your boldest ideas into extraordinary realities. Whether it’s the elegance of 2D animation or the intricate detail of 3D environments, our skilled team of artists, animators, and designers blend creativity and cutting-edge technology to deliver world-class results.
@@ -76,7 +76,7 @@ const Intro = ({ skillsRef }) => {
       </div>
       <div className="animated-line"></div>
       <div ref={skillsRef} className='skills-section mt-10'>
-        <h1 className='text-5xl text-slate-300 mx-5 md:mx-20 mt-10 poppins-bold hover:text-6xl duration-250 text-center'>Our Skills</h1>
+        <h1 className='text-5xl text-slate-300 mx-5 md:mx-20 mt-10 poppins-bold hover:text-6xl duration-200 text-center'>Our Skills</h1>
         <div className="flex justify-center gap-5 flex-wrap mt-5 text-center">
           {skills.map((skill, index) => (
             <div key={index} className={`service-card ${hoveredSkill === index ? 'expanded' : ''}`}

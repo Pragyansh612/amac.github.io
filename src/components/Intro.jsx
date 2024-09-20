@@ -74,6 +74,7 @@ const Intro = ({ skillsRef }) => {
           Partner with Amac Stellar Studio today, and let’s create something extraordinary together!
         </p>
       </div>
+      <div className="animated-line"></div>
       <div ref={skillsRef} className='skills-section mt-10'>
         <h1 className='text-5xl text-slate-300 mx-5 md:mx-20 mt-10 poppins-bold hover:text-5xl duration-250 text-center'>Our Skills</h1>
         <div className="flex justify-center gap-5 flex-wrap mt-5 text-center">

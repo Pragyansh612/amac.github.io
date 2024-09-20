@@ -1,7 +1,8 @@
+// Navbar.js
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-const Navbar = ({ introRef, contactRef }) => {
+const Navbar = ({ introRef, skillsRef, contactRef }) => {
   const [toggle, setToggle] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -17,7 +18,7 @@ const Navbar = ({ introRef, contactRef }) => {
 
   const scrollToSection = (ref) => {
     ref.current.scrollIntoView({ behavior: 'smooth' });
-    setToggle(false); // Close menu after clicking
+    setToggle(false);
   };
 
   return (
@@ -28,20 +29,20 @@ const Navbar = ({ introRef, contactRef }) => {
             font-family: 'Carilliantine';
             src: url('./font/fonts/fonnts.com-Carilliantine_Solid.otf') format('opentype');
           }
-
           .custom-font {
-            font-family: 'Carilliantine', sans-serif; /* Fallback to sans-serif */
+            font-family: 'Carilliantine', sans-serif;
           }
         `}
       </style>
 
       <div className='w-full flex justify-between items-center max-w-7xl mx-auto'>
         <Link to='/' className='flex items-center gap-2 no-underline' onClick={() => window.scrollTo(0, 0)}>
-          <p className=' text-4xl font-bold cursor-pointer mx-10 custom-font text-purple-800 no-underline'>Amac Stellar Studio</p>
+          <p className='text-4xl font-bold cursor-pointer mx-10 custom-font text-purple-800 no-underline'>Amac Stellar Studio</p>
         </Link>
 
         <div className='hidden md:flex gap-10 mx-10'>
           <button onClick={() => scrollToSection(introRef)} className='text-white hover:text-yellow-400 transition-colors duration-200'>About</button>
+          <button onClick={() => scrollToSection(skillsRef)} className='text-white hover:text-yellow-400 transition-colors duration-200'>Skills</button>
           <button onClick={() => scrollToSection(contactRef)} className='text-white hover:text-yellow-400 transition-colors duration-200'>Contact</button>
         </div>
 
@@ -53,6 +54,7 @@ const Navbar = ({ introRef, contactRef }) => {
       {toggle && (
         <div className='absolute top-20 right-0 bg-zinc-900 p-5 rounded-md shadow-lg'>
           <button onClick={() => scrollToSection(introRef)} className='block text-white my-2'>About</button>
+          <button onClick={() => scrollToSection(skillsRef)} className='block text-white my-2'>Skills</button>
           <button onClick={() => scrollToSection(contactRef)} className='block text-white my-2'>Contact</button>
         </div>
       )}

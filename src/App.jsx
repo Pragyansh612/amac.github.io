@@ -1,9 +1,11 @@
+// App.js
 import React, { useRef } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { Hero, Navbar, Intro, Contact } from './components';
 
 const App = () => {
   const introRef = useRef(null);
+  const skillsRef = useRef(null);
   const contactRef = useRef(null);
 
   const gradientBackground = {
@@ -36,9 +38,9 @@ const App = () => {
         />
         
         <div className='relative z-10'>
-          <Navbar introRef={introRef} contactRef={contactRef} />
+          <Navbar introRef={introRef} skillsRef={skillsRef} contactRef={contactRef} />
           <Hero />
-          <Intro />
+          <div ref={introRef}><Intro skillsRef={skillsRef} /></div>
           <div ref={contactRef}>
             <Contact />
           </div>

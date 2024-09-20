@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './Intro.css';
 
-const Intro = () => {
+const Intro = ({ skillsRef }) => {
   const [hoveredSkill, setHoveredSkill] = useState(null);
   const [isVisible, setIsVisible] = useState(false);
   const [lineVisible, setLineVisible] = useState(false);
@@ -74,19 +74,20 @@ const Intro = () => {
           Partner with Amac Stellar Studio today, and let’s create something extraordinary together!
         </p>
       </div>
-      <div className={`animated-line mt-5 ${lineVisible ? 'line-visible' : ''}`}></div>
-      <h1 className='text-5xl text-slate-300 mx-5 md:mx-20 mt-10 poppins-bold hover:text-5xl duration-250 text-center'>Our Skills</h1>
-      <div className="flex justify-center gap-5 flex-wrap mt-5 text-center">
-        {skills.map((skill, index) => (
-          <div key={index} className={`service-card ${hoveredSkill === index ? 'expanded' : ''}`}
-            onMouseEnter={() => setHoveredSkill(index)}
-            onMouseLeave={() => setHoveredSkill(null)}>
-            <h1 className='text-white text-xl font-bold text-wrap p-2 poppins-semibold'>{skill.title}</h1>
-            <div className={`description poppins-regular ${hoveredSkill === index ? 'visible' : ''}`}>
-              {skill.description}
+      <div ref={skillsRef} className='skills-section mt-10'>
+        <h1 className='text-5xl text-slate-300 mx-5 md:mx-20 mt-10 poppins-bold hover:text-5xl duration-250 text-center'>Our Skills</h1>
+        <div className="flex justify-center gap-5 flex-wrap mt-5 text-center">
+          {skills.map((skill, index) => (
+            <div key={index} className={`service-card ${hoveredSkill === index ? 'expanded' : ''}`}
+              onMouseEnter={() => setHoveredSkill(index)}
+              onMouseLeave={() => setHoveredSkill(null)}>
+              <h1 className='text-white text-xl font-bold text-wrap p-2 poppins-semibold'>{skill.title}</h1>
+              <div className={`description poppins-regular ${hoveredSkill === index ? 'visible' : ''}`}>
+                {skill.description}
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
       <div className='mx-5 md:mx-20'>
         <p className='mt-10 text-wrap poppins-regular text-center mb-2'>

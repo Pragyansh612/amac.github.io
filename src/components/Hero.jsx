@@ -11,9 +11,9 @@ const Hero = () => {
             src: url('./font/fonts/fonnts.com-Carilliantine_Solid.otf') format('opentype');
           }
           .custom-font { font-family: 'Carilliantine', sans-serif; }
-          .fade-in { opacity: 0; animation: fadeIn 1.5s forwards; }
+          .fade-in { opacity: 0; animation: fadeIn 2s forwards; }
           @keyframes fadeIn { to { opacity: 1; } }
-          .slide-in { transform: translateY(20px); opacity: 0; animation: slideIn 1.5s forwards; }
+          .slide-in { transform: translateY(20px); opacity: 0; animation: slideIn 2s forwards; }
           @keyframes slideIn { to { transform: translateY(0); opacity: 1; } }
         `}
       </style>

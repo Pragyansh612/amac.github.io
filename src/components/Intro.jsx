@@ -1,19 +1,37 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './Intro.css';
 
+const useIsMobile = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768); // Consider screens <= 768px as mobile
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
+    return () => {
+      window.removeEventListener('resize', checkMobile);
+    };
+  }, []);
+
+  return isMobile;
+};
+
 const Intro = ({ skillsRef }) => {
   const [hoveredSkill, setHoveredSkill] = useState(null);
   const [isVisible, setIsVisible] = useState(false);
-  const [lineVisible, setLineVisible] = useState(false);
   const scrollRef = useRef(null);
+  const isMobile = useIsMobile();
 
   useEffect(() => {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
-          setLineVisible(true);
-          observer.unobserve(entry.target);
+          observer.unobserve(entry.target); // Stop observing once it appears
         }
       });
     });
@@ -50,15 +68,15 @@ const Intro = ({ skillsRef }) => {
       title: 'Video Editing & Post-Production',
       description: 'Our video editing services provide polished and professional final products, enhancing your footage with effects, transitions, and sound design.'
     }
-  ];
+  ]
 
   return (
-    <div ref={scrollRef} className={`mt-10 ${isVisible ? 'intro-animated' : ''}`} style={{ background: 'transparent' }}>
+    <div ref={scrollRef} className={`mt-10 intro-container ${isVisible ? 'pop-up' : ''}`}>
       <div className='mx-5 md:mx-20'>
-        <h1 className='text-5xl text-slate-300 poppins-bold hover:text-6xl duration-200 text-center'>INTRODUCTION</h1>
-        <p className='mt-5 text-wrap poppins-regular text-center'>
+        <h1 className='text-5xl sm:text-5xl text-slate-300 poppins-bold hover:text-6xl duration-200 text-center'>INTRODUCTION</h1>
+        <p className='mt-5 text-wrap poppins-regular text-center text-lg sm:text-lg'>
           Welcome to Amac Stellar Studio – Where Creativity Meets Precision <br />
-          At Amac Stellar Studio, we don’t just create visuals – we craft immersive experiences that captivate, inspire, and engage. As leaders in *Graphic Design, Animation, VFX, Gaming, Video Editing, and Motion Graphics, we specialize in transforming your boldest ideas into extraordinary realities. Whether it’s the elegance of 2D animation or the intricate detail of 3D environments, our skilled team of artists, animators, and designers blend creativity and cutting-edge technology to deliver world-class results.
+          At Amac Stellar Studio, we don’t just create visuals – we craft immersive experiences that captivate, inspire, and engage. As leaders in Graphic Design, Animation, VFX, Gaming, Video Editing, and Motion Graphics, we specialize in transforming your boldest ideas into extraordinary realities. Whether it’s the elegance of 2D animation or the intricate detail of 3D environments, our skilled team of artists, animators, and designers blend creativity and cutting-edge technology to deliver world-class results.
           <br />
           <br />
           We pride ourselves on using industry-leading software like Adobe Creative Suite, Autodesk Maya, Blender, Unity, Unreal Engine, and more, ensuring that every project is executed with precision and technical excellence. Our commitment to timely delivery and staying on schedule is as strong as our dedication to quality, making us the perfect partner for businesses that need both creative brilliance and reliability.
@@ -74,14 +92,23 @@ const Intro = ({ skillsRef }) => {
           Partner with Amac Stellar Studio today, and let’s create something extraordinary together!
         </p>
       </div>
+
       <div className="animated-line"></div>
+
       <div ref={skillsRef} className='skills-section mt-10'>
-        <h1 className='text-5xl text-slate-300 mx-5 md:mx-20 mt-10 poppins-bold hover:text-6xl duration-200 text-center'>Our Skills</h1>
+        <h1 className='text-3xl sm:text-2xl text-slate-300 mx-5 md:mx-20 mt-10 poppins-bold text-center hover:text-4xl duration-200'>
+          Our Skills
+        </h1>
+
         <div className="flex justify-center gap-5 flex-wrap mt-5 text-center">
           {skills.map((skill, index) => (
-            <div key={index} className={`service-card ${hoveredSkill === index ? 'expanded' : ''}`}
-              onMouseEnter={() => setHoveredSkill(index)}
-              onMouseLeave={() => setHoveredSkill(null)}>
+            <div
+              key={index}
+              className={`service-card ${hoveredSkill === index ? 'expanded' : ''}`}
+              onMouseEnter={() => !isMobile && setHoveredSkill(index)}
+              onMouseLeave={() => !isMobile && setHoveredSkill(null)}
+              onClick={() => isMobile && setHoveredSkill(hoveredSkill === index ? null : index)}
+            >
               <h1 className='text-white text-xl font-bold text-wrap p-2 poppins-semibold'>{skill.title}</h1>
               <div className={`description poppins-regular ${hoveredSkill === index ? 'visible' : ''}`}>
                 {skill.description}
@@ -91,7 +118,7 @@ const Intro = ({ skillsRef }) => {
         </div>
       </div>
       <div className='mx-5 md:mx-20'>
-        <p className='mt-10 text-wrap poppins-regular text-center mb-2'>
+        <p className='mt-10 text-wrap poppins-regular text-center mb-2 text-lg sm:text-lg'>
           Our team is dedicated to providing exceptional service and support. Don’t hesitate to reach out—we’re here to help turn your ideas into reality!
         </p>
       </div>

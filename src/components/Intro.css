@@ -1,5 +1,28 @@
-/* Intro.css */
+/* Keyframes for fade-in and pop-up effects */
+@keyframes popUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
+/* Animation for the intro section */
+.intro-container {
+  opacity: 0; /* Hidden by default */
+  transform: translateY(20px); /* Start slightly below the view */
+  transition: opacity 0.5s ease-out, transform 0.5s ease-out; /* Smooth fade and pop */
+}
+
+.intro-container.pop-up {
+  opacity: 1; /* Make visible */
+  transform: translateY(0); /* Reset position */
+}
+
+/* Keyframes for fade-in effect */
 @keyframes fadeInUp {
   0% {
     opacity: 0;
@@ -11,10 +34,12 @@
   }
 }
 
-.intro-animated {
-  animation: fadeInUp 2s ease forwards; /* Animation styles */
+/* Animation for skills section */
+.skills-section {
+  padding: 0 10px;
 }
 
+/* Service card styles */
 .service-card {
   background: linear-gradient(to right, #3b82f6, #14b8a6); /* Gradient background */
   height: 12rem; /* Default height */
@@ -25,8 +50,11 @@
   align-items: center; /* Center horizontally */
   justify-content: flex-start; /* Align to the top */
   position: relative; /* For positioning */
-  transition: height 0.5s ease; /* Smooth height transition */
+  transition: height 0.5s ease, transform 0.3s ease; /* Smooth height and hover transition */
   overflow: hidden; /* Hide overflow */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+  max-width: 250px; /* Limit card width */
+  min-height: 150px; /* Minimum height */
 }
 
 .service-card.expanded {
@@ -37,6 +65,7 @@
   transform: scale(1.05); /* Scale up on hover */
 }
 
+/* Description inside the service card */
 .description {
   opacity: 0; /* Start hidden */
   transform: translateY(10px); /* Start from slightly below */
@@ -56,24 +85,7 @@
   word-wrap: break-word; /* Ensure text wraps nicely */
 }
 
-/* Additional styles for responsiveness if needed */
-@media (max-width: 768px) {
-  .service-card {
-    width: 80%; /* Full width on smaller screens */
-  }
-}
-.intro-animated {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: pop-up 3s forwards;
-}
-
-@keyframes pop-up {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
+/* Animation for the horizontal line */
 .animated-line {
   width: 100%;
   height: 2px;
@@ -91,3 +103,41 @@
   }
 }
 
+/* Media Queries */
+@media (max-width: 768px) {
+  /* Make service cards more responsive on smaller screens */
+  .service-card {
+    width: 80%; /* Full width on smaller screens */
+    height: 10rem; /* Slightly shorter height */
+    margin-bottom: 1.5rem; /* Add space between cards */
+  }
+
+  .service-card.expanded {
+    height: 20rem; /* Adjust expanded height for mobile */
+  }
+
+  /* Adjust the text size for mobile */
+  .text-wrap, .description {
+    font-size: 0.9rem; /* Slightly smaller font on mobile */
+  }
+
+  .animated-line {
+    height: 1.5px; /* Slightly thinner line on mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  /* Further adjustments for very small screens */
+  .service-card {
+    height: 9rem; /* Smaller height on very small screens */
+    width: 100%; /* Full width on small screens */
+  }
+
+  .service-card.expanded {
+    height: 18rem; /* Adjust expanded height */
+  }
+
+  .text-wrap, .description {
+    font-size: 0.8rem; /* Smaller font for mobile readability */
+  }
+}

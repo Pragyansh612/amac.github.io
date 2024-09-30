@@ -1,4 +1,3 @@
-// App.js
 import React, { useRef } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { Hero, Navbar, Intro, Contact } from './components';
@@ -12,7 +11,8 @@ const App = () => {
     position: 'relative',
     zIndex: 0,
     background: 'linear-gradient(135deg, rgba(12, 31, 63, 0.8), rgba(75, 44, 145, 0.8))',
-    height: '100vh',
+    minHeight: '100vh',  // Change from 'height: 100vh' to 'minHeight'
+    overflowX: 'hidden',  // Prevent horizontal overflow
   };
 
   const videoStyle = {
@@ -29,6 +29,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <div style={gradientBackground}>
+        {/* Video Background */}
         <video
           style={videoStyle}
           src='./bg1.mp4'
@@ -36,11 +37,18 @@ const App = () => {
           muted
           loop
         />
-        
+
+        {/* Content */}
         <div className='relative z-10'>
           <Navbar introRef={introRef} skillsRef={skillsRef} contactRef={contactRef} />
           <Hero />
-          <div ref={introRef}><Intro skillsRef={skillsRef} /></div>
+
+          {/* Introduction Section */}
+          <div ref={introRef} className="py-10">
+            <Intro skillsRef={skillsRef} />
+          </div>
+
+          {/* Contact Section */}
           <div ref={contactRef}>
             <Contact />
           </div>

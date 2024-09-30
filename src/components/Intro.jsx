@@ -71,11 +71,13 @@ const Intro = ({ skillsRef }) => {
   ]
 
   return (
-    <div ref={scrollRef} className={`mt-10 intro-container ${isVisible ? 'pop-up' : ''}`}>
+    <div ref={scrollRef} className={`mt-5 intro-container ${isVisible ? 'pop-up' : ''}`}>
       <div className='mx-5 md:mx-20'>
-        <h1 className='text-5xl sm:text-5xl text-slate-300 poppins-bold hover:text-6xl duration-200 text-center'>INTRODUCTION</h1>
-        <p className='mt-5 text-wrap poppins-regular text-center text-lg sm:text-lg'>
-          Welcome to Amac Stellar Studio – Where Creativity Meets Precision <br />
+        <h1 className={`text-center poppins-bold duration-200 ${isMobile ? 'text-3xl' : 'text-5xl'} text-slate-300 hover:text-6xl`}>
+          INTRODUCTION
+        </h1>
+        <p className={`mt-5 text-center poppins-regular text-wrap ${isMobile ? 'text-base' : 'text-lg'}`}>
+        Welcome to Amac Stellar Studio – Where Creativity Meets Precision <br />
           At Amac Stellar Studio, we don’t just create visuals – we craft immersive experiences that captivate, inspire, and engage. As leaders in Graphic Design, Animation, VFX, Gaming, Video Editing, and Motion Graphics, we specialize in transforming your boldest ideas into extraordinary realities. Whether it’s the elegance of 2D animation or the intricate detail of 3D environments, our skilled team of artists, animators, and designers blend creativity and cutting-edge technology to deliver world-class results.
           <br />
           <br />
@@ -96,7 +98,7 @@ const Intro = ({ skillsRef }) => {
       <div className="animated-line"></div>
 
       <div ref={skillsRef} className='skills-section mt-10'>
-        <h1 className='text-3xl sm:text-2xl text-slate-300 mx-5 md:mx-20 mt-10 poppins-bold text-center hover:text-4xl duration-200'>
+        <h1 className={`text-center poppins-bold duration-200 ${isMobile ? 'text-2xl' : 'text-3xl'} text-slate-300 mx-5 md:mx-20 mt-10 hover:text-4xl`}>
           Our Skills
         </h1>
 
@@ -109,7 +111,7 @@ const Intro = ({ skillsRef }) => {
               onMouseLeave={() => !isMobile && setHoveredSkill(null)}
               onClick={() => isMobile && setHoveredSkill(hoveredSkill === index ? null : index)}
             >
-              <h1 className='text-white text-xl font-bold text-wrap p-2 poppins-semibold'>{skill.title}</h1>
+              <h1 className={`text-white font-bold p-2 poppins-semibold ${isMobile ? 'text-sm' : 'text-xl'}`}>{skill.title}</h1>
               <div className={`description poppins-regular ${hoveredSkill === index ? 'visible' : ''}`}>
                 {skill.description}
               </div>
@@ -117,9 +119,10 @@ const Intro = ({ skillsRef }) => {
           ))}
         </div>
       </div>
+
       <div className='mx-5 md:mx-20'>
-        <p className='mt-10 text-wrap poppins-regular text-center mb-2 text-lg sm:text-lg'>
-          Our team is dedicated to providing exceptional service and support. Don’t hesitate to reach out—we’re here to help turn your ideas into reality!
+        <p className={`mt-10 text-center poppins-regular text-wrap mb-2 ${isMobile ? 'text-base' : 'text-lg'}`}>
+        Our team is dedicated to providing exceptional service and support. Don’t hesitate to reach out—we’re here to help turn your ideas into reality!
         </p>
       </div>
     </div>

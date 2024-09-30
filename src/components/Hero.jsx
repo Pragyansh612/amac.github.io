@@ -3,7 +3,7 @@ import { RobotCanvas } from './canvas';
 
 const Hero = () => {
   return (
-    <section className="relative w-full" style={{ minHeight: '120vh' }}> {/* Adjusted minHeight */}
+    <section className="relative w-full" style={{ minHeight: '100vh' }}> {/* Adjusted minHeight */}
       <style>
         {`
           @font-face {

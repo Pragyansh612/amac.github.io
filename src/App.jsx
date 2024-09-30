@@ -44,7 +44,7 @@ const App = () => {
           <Hero />
 
           {/* Introduction Section */}
-          <div ref={introRef} className="py-10">
+          <div ref={introRef} className="">
             <Intro skillsRef={skillsRef} />
           </div>
 

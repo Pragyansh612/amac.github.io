@@ -52,7 +52,7 @@ const RobotCanvas = () => {
   }, []);
 
   return (
-    <div style={{ height: isMobile ? "50vh" : "80vh" }}> {/* Adjust height */}
+    <div style={{ height: isMobile ? "80vh" : "95vh" }}> {/* Adjust height */}
       <Canvas
         frameloop="always"
         shadows

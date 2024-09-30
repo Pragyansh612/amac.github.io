@@ -61,7 +61,7 @@ const RobotCanvas = () => {
         fov: isMobile ? 35 : 25,
       }}
       gl={{ preserveDrawingBuffer: true }}
-      style={{ touchAction: "none" }} // Prevent touch from capturing scroll events
+      // style={{ touchAction: "none" }} // Prevent touch from capturing scroll events
     >
       <Suspense fallback={null}>
         <OrbitControls

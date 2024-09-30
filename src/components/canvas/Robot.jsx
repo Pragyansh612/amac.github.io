@@ -52,28 +52,30 @@ const RobotCanvas = () => {
   }, []);
 
   return (
-    <Canvas
-      frameloop="always"
-      shadows
-      dpr={[1, 2]}
-      camera={{
-        position: isMobile ? [10, 3, 5] : [20, 3, 5],
-        fov: isMobile ? 35 : 25,
-      }}
-      gl={{ preserveDrawingBuffer: true }}
-    >
-      <Suspense fallback={null}>
-        <OrbitControls
-          enableZoom={isMobile} // Allow zooming on mobile
-          enablePan={isMobile}  // Allow panning on mobile
-          maxPolarAngle={Math.PI / 2}
-          minPolarAngle={Math.PI / 2}
-          target={[0, 0, 0]} // Make sure camera focuses on the center
-        />
-        <Computers isMobile={isMobile} />
-      </Suspense>
-      <Preload all />
-    </Canvas>
+    <div style={{ height: isMobile ? "50vh" : "80vh" }}> {/* Adjust height */}
+      <Canvas
+        frameloop="always"
+        shadows
+        dpr={[1, 2]}
+        camera={{
+          position: isMobile ? [10, 3, 5] : [20, 3, 5],
+          fov: isMobile ? 35 : 25,
+        }}
+        gl={{ preserveDrawingBuffer: true }}
+      >
+        <Suspense fallback={null}>
+          <OrbitControls
+            enableZoom={isMobile} // Allow zooming on mobile
+            enablePan={isMobile}  // Allow panning on mobile
+            maxPolarAngle={Math.PI / 2}
+            minPolarAngle={Math.PI / 2}
+            target={[0, 0, 0]} // Make sure camera focuses on the center
+          />
+          <Computers isMobile={isMobile} />
+        </Suspense>
+        <Preload all />
+      </Canvas>
+    </div>
   );
 };
 

@@ -3,7 +3,7 @@ import { RobotCanvas } from './canvas';
 
 const Hero = () => {
   return (
-    <section className="relative w-full h-screen mx-auto">
+    <section className="relative w-full" style={{ minHeight: '120vh' }}> {/* Adjusted minHeight */}
       <style>
         {`
           @font-face {
@@ -30,7 +30,7 @@ const Hero = () => {
           </p>
         </div>
       </div>
-      <RobotCanvas />
+      <RobotCanvas /> {/* This canvas now takes less space, allowing scrolling */}
     </section>
   );
 };

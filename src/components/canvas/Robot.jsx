@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect, useRef, useState } from "react";
+import React, { Suspense, useEffect, useRef, useState } from "react"; 
 import { Canvas, useFrame } from "@react-three/fiber";
 import { OrbitControls, Preload, useGLTF } from "@react-three/drei";
 import { AnimationMixer } from "three";
@@ -61,12 +61,11 @@ const RobotCanvas = () => {
         fov: isMobile ? 35 : 25,
       }}
       gl={{ preserveDrawingBuffer: true }}
-      // style={{ touchAction: "none" }} // Prevent touch from capturing scroll events
     >
       <Suspense fallback={null}>
         <OrbitControls
-          enableZoom={false} // Disable zoom and pan on mobile
-          enablePan={false}
+          enableZoom={isMobile} // Allow zooming on mobile
+          enablePan={isMobile}  // Allow panning on mobile
           maxPolarAngle={Math.PI / 2}
           minPolarAngle={Math.PI / 2}
           target={[0, 0, 0]} // Make sure camera focuses on the center

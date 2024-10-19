@@ -42,7 +42,8 @@ const Contact = () => {
           <strong>Email:</strong> <a href="mailto:amacstellarstudio@gmail.com" className='text-blue-500'>amacstellarstudio@gmail.com</a>
         </p>
         <p className='mt-1 text-wrap poppins-regular sm:text-sm'>
-          <strong>Phone:</strong> <a href="tel:+919748224621" className='text-blue-500'>+91 9748224621</a>
+          <strong>Phone:</strong> <a href="tel:+919748224621" className='text-blue-500'>
+            +91 8777655468</a>
         </p>
       </div>
       <div className='mx-4 md:mx-20 mt-4 text-center'>
